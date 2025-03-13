@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex justify-center items-center h-screen">
+
+    <div class="bg-white shadow-lg rounded-lg p-8 max-w-md w-full">
+        <h2 class="text-2xl font-semibold text-gray-700 text-center">Register</h2>
+        
+        <form action="/register" method="POST" enctype="multipart/form-data" class="mt-6">
+            
+            <!-- Profile Image Upload -->
+            <label class="block text-gray-600 text-sm font-medium mb-2">Profile Image</label>
+            <input type="file" name="profile_image" accept="image/*" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+            
+            <!-- Visiting Card Upload -->
+            <label class="block text-gray-600 text-sm font-medium mt-4 mb-2">Visiting Card</label>
+            <input type="file" name="visiting_card" accept="image/*" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+
+            <!-- Name -->
+            <label class="block text-gray-600 text-sm font-medium mt-4 mb-2">Full Name</label>
+            <input type="text" name="name" placeholder="Enter your name" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+            
+            <!-- Email -->
+            <label class="block text-gray-600 text-sm font-medium mt-4 mb-2">Email</label>
+            <input type="email" name="email" placeholder="Enter your email" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+            
+            <!-- Password -->
+            <label class="block text-gray-600 text-sm font-medium mt-4 mb-2">Password</label>
+            <input type="password" name="password" id="password" placeholder="Enter your password" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+            
+            <!-- Confirm Password -->
+            <label class="block text-gray-600 text-sm font-medium mt-4 mb-2">Confirm Password</label>
+            <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm your password" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+
+            <p id="password_error" class="text-red-500 text-sm mt-1 hidden">Passwords do not match!</p>
+
+            <!-- Submit Button -->
+            <button type="submit" class="mt-6 w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 rounded-lg transition duration-200" onclick="return validatePassword()">Register</button>
+        
+        </form>
+    </div>
+
+    <!-- Password Validation Script -->
+    <script>
+        function validatePassword() {
+            let password = document.getElementById("password").value;
+            let confirmPassword = document.getElementById("confirm_password").value;
+            let errorText = document.getElementById("password_error");
+
+            if (password !== confirmPassword) {
+                errorText.classList.remove("hidden");
+                return false;
+            } else {
+                errorText.classList.add("hidden");
+                return true;
+            }
+        }
+    </script>
+
+</body>
+</html>

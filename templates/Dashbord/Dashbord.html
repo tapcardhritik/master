@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Leaflet.js (for Maps) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <style>
+        /* Transparent Navbar with Blur Effect */
+        .transparent-nav {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- ✅ Navigation Bar -->
+    <nav class="fixed w-full z-50 top-0 left-0 border-b border-gray-200 shadow-md transparent-nav">
+        <div class="max-w-screen-xl flex justify-between items-center mx-auto p-4">
+            <a href="#" class="flex items-center space-x-3">
+                <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Logo">
+                <span class="text-2xl font-semibold text-gray-800">Dashboard</span>
+            </a>
+            <div class="flex space-x-3">
+                <button onclick="window.location.href='/'" class="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg">Home</button>
+                <button onclick="window.location.href='account/logout'" class="text-white bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ✅ Dashboard Layout -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 p-8 mt-16">
+
+        <!-- ✅ Left Panel -->
+        <div class="col-span-1 space-y-6">
+
+            <!-- Total Cards Count -->
+            <div class="bg-white shadow-lg rounded-lg p-6 text-center max-w-lg mx-auto hover:shadow-xl transition duration-300">
+                <h2 class="text-2xl font-semibold text-gray-600">Number of Cards</h2>
+                <p class="text-4xl font-bold text-blue-600">{{ count }}</p>
+            </div>
+
+            <!-- Visiting Card Image with Edit Icon -->
+            <div class="bg-white shadow-lg rounded-lg p-6 text-center max-w-lg mx-auto hover:shadow-xl transition duration-300 relative">
+                {% if visiting_card.visiting_card %}
+                    <img src="{{ visiting_card.visiting_card.url }}" alt="Visiting Card" class="w-64 h-40 mx-auto rounded-lg border-4 border-blue-500">
+                    
+                    <!-- Pencil Edit Icon for Visiting Card -->
+                    <a href="/card/upload-card/" class="absolute top-2 right-2 bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M17.414 2.586a2 2 0 00-2.828 0L7.586 9.586a2 2 0 00-.293.414l-1 2a2 2 0 002.586 2.586l2-1a2 2 0 00.414-.293l7-7a2 2 0 000-2.828zM7 13.586V15h1.414l5.293-5.293-1.414-1.414L7 13.586z"/>
+                        </svg>
+                    </a>
+                {% else %}
+                    <p class="text-gray-500">No Visiting Card Available</p>
+                {% endif %}
+            </div>
+
+            <!-- User Details with Edit Icon -->
+            <div class="bg-white shadow-lg rounded-lg p-6 max-w-lg mx-auto hover:shadow-xl transition duration-300 relative">
+                <h2 class="text-xl font-semibold text-gray-600">User Details</h2>
+
+                <!-- Pencil Edit Icon for User Details -->
+                <a href="/account/edit/" class="absolute top-2 right-2 bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M17.414 2.586a2 2 0 00-2.828 0L7.586 9.586a2 2 0 00-.293.414l-1 2a2 2 0 002.586 2.586l2-1a2 2 0 00.414-.293l7-7a2 2 0 000-2.828zM7 13.586V15h1.414l5.293-5.293-1.414-1.414L7 13.586z"/>
+                    </svg>
+                </a>
+
+                <!-- Profile Image -->
+                <div class="text-center mb-4">
+                    {% if profile.Profile_image %}
+                        <img src="{{ profile.Profile_image.url }}" alt="User Image" class="w-24 h-24 mx-auto rounded-full border-4 border-gray-500">
+                    {% else %}
+                        <img src="/static/images/default-profile.png" alt="Default User Image" class="w-24 h-24 mx-auto rounded-full border-4 border-gray-500">
+                    {% endif %}
+                </div>
+
+                <p class="mt-2 text-gray-700"><strong>Name:</strong> {{ name }}</p>
+                <p class="mt-1 text-gray-700"><strong>Email:</strong> {{ email }}</p>
+            </div>
+
+        </div>
+
+        <!-- ✅ Right Panel -->
+        <div class="col-span-2 space-y-6">
+
+            <!-- Map (User Locations) -->
+            <div class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition duration-300">
+                <h2 class="text-xl font-semibold text-gray-600 text-center">User Locations</h2>
+                <div id="map" class="h-64 mt-4 rounded-lg"></div>
+            </div>
+
+            <!-- Bar Graph -->
+            <div class="bg-white shadow-lg rounded-lg p-6 flex justify-center hover:shadow-xl transition duration-300">
+                <div class="w-full max-w-md">
+                    <h2 class="text-xl font-semibold text-gray-600 text-center">User Activity</h2>
+                    <canvas id="barChart" class="mt-4"></canvas>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ✅ JavaScript for Map -->
+    <script>
+        var map = L.map('map').setView([28.7041, 77.1025], 10);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Loop through locations and add markers dynamically
+        {% for location in locations %}
+            L.marker([{{ location.latitude }}, {{ location.longitude }}])
+                .addTo(map)
+                .bindPopup(`<b>Device:</b> {{ location.device }}`)
+                .openPopup();
+        {% endfor %}
+    </script>
+
+    <!-- ✅ JavaScript for Bar Graph -->
+    <script>
+        var ctx = document.getElementById('barChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'User Signups',
+                    data: [12, 19, 10, 5, 15, 9],
+                    backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

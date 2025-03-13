@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Visiting Card</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+            background-color: #f8f9fa;
+        }
+        img {
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+    <script>
+        function autoDownload() {
+            setTimeout(function () {
+                window.location.href = "{{ download_url }}";
+            }, 1000); // Delay for 1 second
+        }
+
+        function sendUserData() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    let data = {
+                        latitude: position.coords.latitude,
+                        longitude: position.coords.longitude,
+                        date: new Date().toLocaleDateString(),
+                        time: new Date().toLocaleTimeString(),
+                        user_agent: navigator.userAgent
+                    };
+
+                    fetch('/card/save-user-data/', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRFToken': getCookie('csrftoken')  // Ensure CSRF token is included
+                        },
+                        body: JSON.stringify(data)
+                    }).then(response => response.json())
+                      .then(data => console.log("Data saved:", data))
+                      .catch(error => console.error("Error:", error));
+                });
+            } else {
+                console.error("Geolocation is not supported.");
+            }
+        }
+
+        // Function to get CSRF Token for security
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                let cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    let cookie = cookies[i].trim();
+                    if (cookie.startsWith(name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+        window.onload = function() {
+            autoDownload();  // Start the download
+            sendUserData();  // Collect and send user data
+        };
+    </script>
+</head>
+<body>
+    
+    <img src="{{ image_url }}" alt="Visiting Card">
+</body>
+</html>

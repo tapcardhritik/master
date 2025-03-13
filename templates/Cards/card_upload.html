@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Visiting Card</title>
+
+    <!-- CSS for Styling -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            margin: auto;
+        }
+        h2 {
+            color: #333;
+        }
+        input[type="file"] {
+            display: none;
+        }
+        .custom-file-upload {
+            display: inline-block;
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .card-container {
+            width: 300px;
+            height: 180px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background-color: #f8f8f8;
+            margin: 20px auto;
+        }
+        .card-container img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #28a745;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+
+    <!-- JavaScript for Image Preview -->
+    <script>
+        function previewImage(event) {
+            var reader = new FileReader();
+            reader.onload = function(){
+                var output = document.getElementById('preview');
+                output.src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <h2>Upload Your Visiting Card</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <!-- Custom File Upload Button -->
+        <label for="file" class="custom-file-upload">Choose Visiting Card Image</label>
+        <input type="file" name="visiting_card" id="file" accept="image/*" onchange="previewImage(event)">
+        
+        <br><br>
+
+        <!-- Visiting Card Display Box -->
+        <div class="card-container">
+           {% if profile and profile.visiting_card %}
+               <img id="preview" src="{{ profile.visiting_card.url }}" alt="Visiting Card">
+           {% else %}
+               <img id="preview" src="/static/images/default-card.png" alt="Default Visiting Card">
+           {% endif %}
+        </div>
+
+        <br>
+
+        <!-- Submit Button -->
+        <button type="submit">Upload & Save</button>
+    </form>
+</div>
+
+</body>
+</html>
