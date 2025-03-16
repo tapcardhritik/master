@@ -30,7 +30,7 @@ def upload_visiting_card(request):
 
 def get_uuid(request):
     if not request.user.is_authenticated:
-        return redirect("account/login/")
+        return redirect("/account/login/")
     user = User.objects.get(username=request.user)  # Replace with the actual username
     profile = Profile.objects.get(user=user)
     print(profile.uid)
