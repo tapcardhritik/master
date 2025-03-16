@@ -1,226 +1,507 @@
 {% extends 'Base/base.html' %}
 
 {% block start %}
-    <div id="main" data-scroll-container>
-        <div id="loader">
-        <h2>Tomorrow’s</h2>
-        <h2>Brand</h2>
-        <h2>Today™</h2>
+    
+      
+<section class="py-0" id="header">
+    <div class="bg-holder">
+      <video autoplay loop muted playsinline class="bg-video">
+          <source src="media/dummy/video.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+  </div> </div>
+    <!--/.bg-holder-->
 
-
+    <div class="container">
+      <div class="row align-items-center min-vh-75 min-vh-xl-100">
+        <div class="col-md-8 col-lg-6 text-md-start text-center">
+          <h1 class="display-1 lh-sm text-uppercase text-light">Here is the Future <br class="d-none d-xxl-block" />Of Card</h1>
+          <div class="pt-4"><a class="btn btn-sm btn-outline-primary me-3" href="#">Get your card</a><a class="btn btn-sm btn-outline-primary" href="#">REQUEST VIRTUAL</a></div>
+        </div>
+      </div>
     </div>
-        <div id="page1" data-scroll-section>
-            <div id="playreel">
-                <h3>Play Reel</h3>
-            </div>
-            <div id="nav">
-                <div id="logo">
-                    <h3>The Venture Agency.</h3>
-                </div>
-                <div id="menu">
-                    <h3>Menu</h3>
-                </div>
-            </div>
-    
-            <div id="video" data-scroll data-scroll-speed="-2">
-                <video  autoplay muted loop src="https://prismic-io.s3.amazonaws.com/rejouice/658ef98d531ac2845a270509_RJ-2-0-Videobackground_compressed.mp4"></video>
-            </div>
-
-            <div id="company-name" data-scroll data-scroll-speed="2">
-                <span><h1>R</h1></span>
-                <span><h1>E</h1></span>
-                <span><h1>J</h1></span>
-                <span><h1>O</h1></span>
-                <span><h1>U</h1></span>
-                <span><h1>I</h1></span>
-                <span><h1>C</h1></span>
-                <span><h1>E</h1></span>
-            </div>
-        </div>
-
-        <div id="txt-wrapper"  data-scroll-section class="one">
-            <div id="slogan" class="spacebtw">
-               <div> <p>Tomorrow’s Brands, Today™</p></div>
-               <div> <p> Paris / San Diego</p></div>
-            </div>
-
-            <div id="txt">
-                <div> <p> We are a venture firm and digital agency. Our</p></div> 
-                <div><p>mission is to transform founders' visions into</p></div>
-                <div><p>remarkable brands. Choose traditional</p> </div>
-                <div><p>compensation or an equity offset through our</p></div> 
-                <div> <p> Venture Model — your vision, your decision.</p></div>
-                <br><br><br>
-            </div>    
-            
-        </div>
-        
-        <div id="page3" data-scroll-section>
-                <h3 data-scroll data-scroll-speed="2">Agency & Venture <span>Models</span> ↵</h3>
-                <h1 data-scroll data-scroll-speed="2">Explore our services</h1>
-                <h1 data-scroll data-scroll-speed="2">and engagement models</h1>
-        </div>
-
-        <div id="page4" data-scroll-section>
-            <div id="txt">
-                <p>Transforming visions into brands.</p>
-                <a href="#">
-                    <i class="ri-corner-down-right-line"></i>
-                    See the work</a>
-            </div>
-            <div id="cards">
-                <div class="card">
-                    <video autoplay loop muted src="https://prismic-io.s3.amazonaws.com/rejouice/87835eca-32b7-4eeb-91fc-4ba0dad1fdec_Website-homepage-Work-01_1.mp4"></video>
-                    <img src="media/images/card1.avif" alt="">
-                </div>
-                <div class="card">
-                    <video autoplay loop muted src="https://prismic-io.s3.amazonaws.com/rejouice/3492b027-4212-4103-b2e2-aa702345d784_Website-homepage-Work-02_1.mp4"></video>
-                    <img src="media/images/card2.avif" alt="">
-                </div>
-                <div class="card">
-                <video autoplay loop muted src="https://prismic-io.s3.amazonaws.com/rejouice/363f6760-3496-4638-8fc5-3b5d7711087c_Website-homepage-Work-03_1.mp4"></video>
-                <img src="media/images/card3.avif" alt="">
-                </div>
-            </div>
-        </div>
-
-        <div id="txt-wrapper"  data-scroll-section class="two">
-            <div id="slogan">
-              
-              <div>  <p> We operate on a simple philosophy:</p></div>
-              <div>  <p>Quality over quantity.</div>
-            </div>
-
-            <div id="txt">
-                     
-                    <div> <p> We partner with up to 5 clients each year. This </p> </div>
-                    <div><p> allows intense focus on the transformation and</p></div>
-                    <div> <p>launch of your brand by our very best team, which </p></div>
-                    <div><p> is the only team we have.  We specialize in working </p></div>
-                    <div> <p>with startups that are revolutionizing </div>
-                    <div><p> their industries.</div>
-                
-                <br><br><br>
-            </div>    
-        </div>
-
-        <div id="page5" data-scroll-section>
-            <video src="https://www.rejouice.com/assets/videos/RJ-BALL-BLUE-ORANGE-scaled.webm" autoplay muted loop></video>
-            <div id="playreel" class="take-one">
-                <h3>Take One</h3>
-            </div>
-        </div>
-        <div id="txt-wrapper" data-scroll-section class="three">
-            <div id="slogan">
-               <div> <p>Strategy & emotion.</div>
-               <div> <p>You need both. </p></div>
-            </div>
-
-            <div id="txt">
-                          
-                    <div> <p>  Data matters, yet it’s the emotion that drives</p></div>
-                    <div> <p>buying decisions. We don’t believe in ‘one size fits</p> </div>
-                    <div> <p>all.’ We craft unique brand experiences that </p></div>
-                    <div><p> deeply resonate with your audience and boost </p></div>
-                    <div><p> your KPIs.</div>
-                <br><br><br>
-            </div>    
-        </div>
-
-        <div id="page6" data-scroll-section >
-            <div id="part-1">
-                <h1>Get in touch.</h1>
-                <a href="#">Contact us </a>
-            </div>
-            <div id="infinite">
-                <div class="element">
-                    <img src="https://images.prismic.io/rejouice/a19d8427-5008-4dce-afa4-5d66118a0463_d7a851a9d8e2eb36cf93ffe4a6fa3701.jpeg?auto=compress%2Cformat&fm=webp" alt="">
-                </div>
-                <div class="element">
-                    <img src="https://images.prismic.io/rejouice/36450525-8a76-4a44-b6d4-59c00ad0b50d_RJ-Home-OuraRing-x2.png?auto=compress%2Cformat&fm=webp&width=2048" alt="">
-                </div>
-                <div class="element">
-                    <img src="https://images.prismic.io/rejouice/d3289122-3f25-43f3-b140-11a342a484d7_Mask+group+%2838%29.jpg?auto=compress%2Cformat&fm=webp&width=2048" alt="">
-                </div>
-                <div class="element">
-                    <img src="https://images.prismic.io/rejouice/8059f4af-8ba3-4e5f-a14b-ba5ed760963f_Mask+group+%2839%29.jpg?auto=compress%2Cformat&fm=webp&width=2048" alt="">
-                </div>
-                <div class="element">
-                    <img src="https://images.prismic.io/rejouice/57ac2830-96e7-4174-a104-b384126bf98c_fec955552eb681ff6c273774515e6c2e.jpg?auto=compress%2Cformat&fm=webp&width=2048" alt="">
-                </div>
-                <div class="element">
-                    <img src="https://images.prismic.io/rejouice/a19d8427-5008-4dce-afa4-5d66118a0463_d7a851a9d8e2eb36cf93ffe4a6fa3701.jpeg?auto=compress%2Cformat&fm=webp" alt="">
-                </div>
-                <div class="element">
-                    <img src="https://images.prismic.io/rejouice/36450525-8a76-4a44-b6d4-59c00ad0b50d_RJ-Home-OuraRing-x2.png?auto=compress%2Cformat&fm=webp&width=2048" alt="">
-                </div>
-                <div class="element">
-                    <img src="https://images.prismic.io/rejouice/d3289122-3f25-43f3-b140-11a342a484d7_Mask+group+%2838%29.jpg?auto=compress%2Cformat&fm=webp&width=2048" alt="">
-                </div>
-                <div class="element">
-                    <img src="https://images.prismic.io/rejouice/8059f4af-8ba3-4e5f-a14b-ba5ed760963f_Mask+group+%2839%29.jpg?auto=compress%2Cformat&fm=webp&width=2048" alt="">
-                </div>
-                <div class="element">
-                    <img src="https://images.prismic.io/rejouice/57ac2830-96e7-4174-a104-b384126bf98c_fec955552eb681ff6c273774515e6c2e.jpg?auto=compress%2Cformat&fm=webp&width=2048" alt="">
-                </div>
-                
-            </div>
-             
-
-        </div>
-
-        <div id="page3" data-scroll-section  >
-
-
-            <h3 data-scroll data-scroll-speed="1">We're uniquely built  ↵</h3>
-            
-            <h1 data-scroll data-scroll-speed="2">About us</h1>
-    
-    
-        </div>
-
-        <div id="footer"  data-scroll-section >
-            <div id="part1"  data-scroll data-scroll-speed="-2">
-                <div id="left">
-                    <h3>Relax. We've got you.</h3>
-                    <a href="#">Take a seat</a>
-                </div>
-                <div id="right">
-                    <div id="section1">
-                        <a href="#">Home</a>
-                        <a href="">Work</a>
-                        <a href="">About</a>
-                        <a href="">Services & Models</a>
-                        <a href="">Contact</a>
-                        
-                    </div>
-                    <div id="section2">
-                        <a href="#">X</a>
-                        <a href="">Instagram</a>
-                        <a href="">LinkedIn</a>
-                       
-                        
-                    </div>
-                </div>
-            </div>
-            <div id="part2" data-scroll data-scroll-speed="-2">
-                <div id="copyright">
-                    <h1>San Diego—California <br>Paris—France</h1>
-                    <div id="section2"><h3> biz@rejouice.com</h3> <p>©2023 legal</p></div> 
-
-                </div>
-                <div id="company-name">
-                    <span><h1>R</h1></span>
-                    <span><h1>E</h1></span>
-                    <span><h1>J</h1></span>
-                    <span><h1>O</h1></span>
-                    <span><h1>U</h1></span>
-                    <span><h1>I</h1></span>
-                    <span><h1>C</h1></span>
-                    <span><h1>E</h1></span>
-                </div>
-            </div>
-        </div>
+  </section>
+  <section class="bg-black py-8 pt-0" id="store">
+   
+    <div class="bg-holder" style="background-image:url(media/dummy/tapii.jpg);background-position:left bottom;background-size:contain;">
     </div>
-    
-    {% endblock %}
+    <!--/.bg-holder-->
+
+    <div class="container-lg">
+      <div class="row flex-center">
+        <div class="col-6 order-md-0 text-center text-md-start"></div>
+        <div class="col-sm-10 col-md-6 col-lg-6 text-center text-md-start">
+          <div class="col-4 position-relative ms-auto py-5"><a class="carousel-control-prev carousel-icon z-index-2" href="#carouselExampleFade" role="button" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span></a><a class="carousel-control-next carousel-icon z-index-2" href="#carouselExampleFade" role="button" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span></a></div>
+          <div class="carousel slide carousel-fade" id="carouselExampleFade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="row h-100">
+                  <div class="col-12">
+                    <h5 class="fs-3 fs-lg-5 lh-sm text-uppercase">Our store1</h5>
+                    <p class="my-4 pe-xl-5">Memphis clinched a spot in the play-in tournament with the victory, but the fight for seeding continues. The race for the No. 8 spot in the West -- and the safety net of having to win just one of two games to make the playoffs -- could come down to the regular seasons final day, when Memphis and Golden State meet. The good thing for the Grizzlies is they dont have to leave home until that matchup as they have games against Dallas and two against Sacramento before the finale.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-0 pb-6" id="collections">
+    <div class="container">
+      <div class="row h-100">
+        <div class="col-lg-7 mt-7">
+          <h5 class="fs-3 fs-lg-5 lh-sm mb-0 text-uppercase">Collections</h5>
+        </div>
+        <div class="col-12">
+          <nav>
+            <div class="nav nav-tabs watch-tabs mb-4 justify-content-end" id="nav-tab" role="tablist">
+              <button class="nav-link active" id="nav-latest-tab" data-bs-toggle="tab" data-bs-target="#nav-latest" type="button" role="tab" aria-controls="nav-latest" aria-selected="true">LATEST </button>
+              <button class="nav-link" id="nav-popular-tab" data-bs-toggle="tab" data-bs-target="#nav-popular" type="button" role="tab" aria-controls="nav-popular" aria-selected="false">POPULAR</button>
+            </div>
+          </nav>
+          <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-latest" role="tabpanel" aria-labelledby="nav-latest-tab">
+              <div class="carousel slide" id="carouselLatest" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active" data-bs-interval="10000">
+                    <div class="row h-100 align-items-center">
+                      <div class="col-sm-6 col-md-4 mb-3 mb-md-0">
+                        <div class="card bg-black text-white p-6 pb-8"><img class="card-img" src="media/img/gallery/watch-2.png" alt="..." />
+                          <div class="card-img-overlay bg-dark-gradient d-flex flex-column-reverse align-items-center">
+                            <h6 class="text-primary">$650.00</h6>
+                            <h4 class="text-light">ADRIATICA ADR</h4>
+                          </div><a class="stretched-link" href="#"></a>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 col-md-4 mb-3 mb-md-0">
+                        <div class="card bg-black text-white p-6 pb-8"><img class="card-img" src="media/img/gallery/watch-3.png" alt="..." />
+                          <div class="card-img-overlay bg-dark-gradient d-flex flex-column-reverse align-items-center">
+                            <h6 class="text-primary">$126.00</h6>
+                            <h4 class="text-light">SEIKO SNZGO7K1</h4>
+                          </div><a class="stretched-link" href="#"></a>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 col-md-4 mb-3 mb-md-0">
+                        <div class="card bg-black text-white p-6 pb-8"><img class="card-img" src="media/img/gallery/watch-1.png" alt="..." />
+                          <div class="card-img-overlay bg-dark-gradient d-flex flex-column-reverse align-items-center">
+                            <h6 class="text-primary">$250.00</h6>
+                            <h4 class="text-light">ROAMER RM 220837</h4>
+                          </div><a class="stretched-link" href="#"></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item" data-bs-interval="3000">
+                    <div class="row h-100 align-items-center">
+                      <div class="col-sm-6 col-md-4 mb-3 mb-md-0">
+                        <div class="card bg-black text-white p-6 pb-8"><img class="card-img" src="media/img/gallery/watch-2.png" alt="..." />
+                          <div class="card-img-overlay bg-dark-gradient d-flex flex-column-reverse align-items-center">
+                            <h6 class="text-primary">$650.00</h6>
+                            <h4 class="text-light">ADRIATICA ADR</h4>
+                          </div><a class="stretched-link" href="#"></a>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 col-md-4 mb-3 mb-md-0">
+                        <div class="card bg-black text-white p-6 pb-8"><img class="card-img" src="media/img/gallery/watch-3.png" alt="..." />
+                          <div class="card-img-overlay bg-dark-gradient d-flex flex-column-reverse align-items-center">
+                            <h6 class="text-primary">$126.00</h6>
+                            <h4 class="text-light">SEIKO SNZGO7K1</h4>
+                          </div><a class="stretched-link" href="#"></a>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 col-md-4 mb-3 mb-md-0">
+                        <div class="card bg-black text-white p-6 pb-8"><img class="card-img" src="media/img/gallery/watch-1.png" alt="..." />
+                          <div class="card-img-overlay bg-dark-gradient d-flex flex-column-reverse align-items-center">
+                            <h6 class="text-primary">$250.00</h6>
+                            <h4 class="text-light">ROAMER RM 220837</h4>
+                          </div><a class="stretched-link" href="#"></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="row h-100 align-items-center">
+                      <div class="col-sm-6 col-md-4 mb-3 mb-md-0">
+                        <div class="card bg-black text-white p-6 pb-8"><img class="card-img" src="media/img/gallery/watch-2.png" alt="..." />
+                          <div class="card-img-overlay bg-dark-gradient d-flex flex-column-reverse align-items-center">
+                            <h6 class="text-primary">$650.00</h6>
+                            <h4 class="text-light">ADRIATICA ADR</h4>
+                          </div><a class="stretched-link" href="#"></a>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 col-md-4 mb-3 mb-md-0">
+                        <div class="card bg-black text-white p-6 pb-8"><img class="card-img" src="media/img/gallery/watch-3.png" alt="..." />
+                          <div class="card-img-overlay bg-dark-gradient d-flex flex-column-reverse align-items-center">
+                            <h6 class="text-primary">$126.00</h6>
+                            <h4 class="text-light">SEIKO SNZGO7K1</h4>
+                          </div><a class="stretched-link" href="#"></a>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 col-md-4 mb-3 mb-md-0">
+                        <div class="card bg-black text-white p-6 pb-8"><img class="card-img" src="media/img/gallery/watch-1.png" alt="..." />
+                          <div class="card-img-overlay bg-dark-gradient d-flex flex-column-reverse align-items-center">
+                            <h6 class="text-primary">$250.00</h6>
+                            <h4 class="text-light">ROAMER RM 220837</h4>
+                          </div><a class="stretched-link" href="#"></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselLatest" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span></button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselLatest" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next </span></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="nav-popular" role="tabpanel" aria-labelledby="nav-popular-tab">
+              <div class="carousel slide" id="carouselPopular" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active" data-bs-interval="10000">
+                    <div class="row h-100 align-items-center">
+                      <div class="col-sm-6 col-md-4 mb-3 mb-md-0">
+                        <div class="card bg-black text-white p-6 pb-8"><img class="card-img" src="media/img/gallery/watch-2.png" alt="..." />
+                          <div class="card-img-overlay bg-dark-gradient d-flex flex-column-reverse align-items-center">
+                            <h6 class="text-primary">$650.00</h6>
+                            <h4 class="text-light">ADRIATICA ADR</h4>
+                          </div><a class="stretched-link" href="#"></a>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 col-md-4 mb-3 mb-md-0">
+                        <div class="card bg-black text-white p-6 pb-8"><img class="card-img" src="media/img/gallery/watch-3.png" alt="..." />
+                          <div class="card-img-overlay bg-dark-gradient d-flex flex-column-reverse align-items-center">
+                            <h6 class="text-primary">$126.00</h6>
+                            <h4 class="text-light">SEIKO SNZGO7K1</h4>
+                          </div><a class="stretched-link" href="#"></a>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 col-md-4 mb-3 mb-md-0">
+                        <div class="card bg-black text-white p-6 pb-8"><img class="card-img" src="media/img/gallery/watch-1.png" alt="..." />
+                          <div class="card-img-overlay bg-dark-gradient d-flex flex-column-reverse align-items-center">
+                            <h6 class="text-primary">$250.00</h6>
+                            <h4 class="text-light">ROAMER RM 220837</h4>
+                          </div><a class="stretched-link" href="#"></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item" data-bs-interval="5000">
+                    <div class="row h-100 align-items-center">
+                      <div class="col-sm-6 col-md-4 mb-3 mb-md-0">
+                        <div class="card bg-black text-white p-6 pb-8"><img class="card-img" src="media/img/gallery/watch-2.png" alt="..." />
+                          <div class="card-img-overlay bg-dark-gradient d-flex flex-column-reverse align-items-center">
+                            <h6 class="text-primary">$650.00</h6>
+                            <h4 class="text-light">ADRIATICA ADR</h4>
+                          </div><a class="stretched-link" href="#"></a>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 col-md-4 mb-3 mb-md-0">
+                        <div class="card bg-black text-white p-6 pb-8"><img class="card-img" src="media/img/gallery/watch-3.png" alt="..." />
+                          <div class="card-img-overlay bg-dark-gradient d-flex flex-column-reverse align-items-center">
+                            <h6 class="text-primary">$126.00</h6>
+                            <h4 class="text-light">SEIKO SNZGO7K1</h4>
+                          </div><a class="stretched-link" href="#"></a>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 col-md-4 mb-3 mb-md-0">
+                        <div class="card bg-black text-white p-6 pb-8"><img class="card-img" src="media/img/gallery/watch-1.png" alt="..." />
+                          <div class="card-img-overlay bg-dark-gradient d-flex flex-column-reverse align-items-center">
+                            <h6 class="text-primary">$250.00</h6>
+                            <h4 class="text-light">ROAMER RM 220837</h4>
+                          </div><a class="stretched-link" href="#"></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item" data-bs-interval="3000">
+                    <div class="row h-100 align-items-center">
+                      <div class="col-sm-6 col-md-4 mb-3 mb-md-0">
+                        <div class="card bg-black text-white p-6 pb-8"><img class="card-img" src="media/img/gallery/watch-2.png" alt="..." />
+                          <div class="card-img-overlay bg-dark-gradient d-flex flex-column-reverse align-items-center">
+                            <h6 class="text-primary">$650.00</h6>
+                            <h4 class="text-light">ADRIATICA ADR</h4>
+                          </div><a class="stretched-link" href="#"></a>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 col-md-4 mb-3 mb-md-0">
+                        <div class="card bg-black text-white p-6 pb-8"><img class="card-img" src="media/img/gallery/watch-3.png" alt="..." />
+                          <div class="card-img-overlay bg-dark-gradient d-flex flex-column-reverse align-items-center">
+                            <h6 class="text-primary">$126.00</h6>
+                            <h4 class="text-light">SEIKO SNZGO7K1</h4>
+                          </div><a class="stretched-link" href="#"></a>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 col-md-4 mb-3 mb-md-0">
+                        <div class="card bg-black text-white p-6 pb-8"><img class="card-img" src="media/img/gallery/watch-1.png" alt="..." />
+                          <div class="card-img-overlay bg-dark-gradient d-flex flex-column-reverse align-items-center">
+                            <h6 class="text-primary">$250.00</h6>
+                            <h4 class="text-light">ROAMER RM 220837</h4>
+                          </div><a class="stretched-link" href="#"></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="row h-100 align-items-center">
+                      <div class="col-sm-6 col-md-4 mb-3 mb-md-0">
+                        <div class="card bg-black text-white p-6 pb-8"><img class="card-img" src="media/img/gallery/watch-2.png" alt="..." />
+                          <div class="card-img-overlay bg-dark-gradient d-flex flex-column-reverse align-items-center">
+                            <h6 class="text-primary">$650.00</h6>
+                            <h4 class="text-light">ADRIATICA ADR</h4>
+                          </div><a class="stretched-link" href="#"></a>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 col-md-4 mb-3 mb-md-0">
+                        <div class="card bg-black text-white p-6 pb-8"><img class="card-img" src="media/img/gallery/watch-3.png" alt="..." />
+                          <div class="card-img-overlay bg-dark-gradient d-flex flex-column-reverse align-items-center">
+                            <h6 class="text-primary">$126.00</h6>
+                            <h4 class="text-light">SEIKO SNZGO7K1</h4>
+                          </div><a class="stretched-link" href="#"></a>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 col-md-4 mb-3 mb-md-0">
+                        <div class="card bg-black text-white p-6 pb-8"><img class="card-img" src="media/img/gallery/watch-1.png" alt="..." />
+                          <div class="card-img-overlay bg-dark-gradient d-flex flex-column-reverse align-items-center">
+                            <h6 class="text-primary">$250.00</h6>
+                            <h4 class="text-light">ROAMER RM 220837</h4>
+                          </div><a class="stretched-link" href="#"></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselPopular" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span></button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselPopular" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next </span></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================-->
+  <!-- <section> begin ============================-->
+  <section class="py-6 bg-dark">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0 d-flex flex-center"><img src="media/img/gallery/rado.png" alt="brands" /></div>
+        <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0 d-flex flex-center"><img src="media/img/gallery/swatch.png" alt="brands" /></div>
+        <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0 d-flex flex-center"><img src="media/img/gallery/omega-1.png" alt="brands" /></div>
+        <div class="col-sm-6 col-lg-3 mb-4 mb-lg-0 d-flex flex-center"><img src="media/img/gallery/zenith.png" alt="brands" /></div>
+      </div>
+    </div>
+    <!-- end of .container-->
+
+  </section>
+  <!-- <section> close ============================-->
+  <!-- ============================================-->
+
+
+
+
+  <!-- ============================================-->
+  <!-- <section> begin ============================-->
+  <section id="testimonial">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7 mx-auto text-center my-5">
+          <h5 class="fs-3 fs-lg-5 lh-sm mb-0 text-uppercase">what customers are saying</h5>
+        </div>
+      </div>
+      <div class="row flex-center h-100">
+        <div class="col-xl-9">
+          <div class="carousel slide" id="carouselTestimonials" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active" data-bs-interval="10000">
+                <div class="row h-100 justify-content-center">
+                  <div class="col-md-6 mb-4">
+                    <div class="card h-100 shadow card-span p-3 bg-black">
+                      <div class="card-body">
+                        <div class="d-flex align-items-center"><img class="img-fluid" src="media/img/gallery/smith.png" width="80" alt="testimonials" />
+                          <div class="flex-1 ms-4">
+                            <h6 class="fs-lg-1 mb-1 text-uppercase">amanda smith</h6>
+                          </div>
+                        </div>
+                        <p class="mb-0 mt-4 fw-light lh-lg">Nisi cumque in necessitatibus molestiae eaque excepturi ab. Laboriosam ipsam voluptatem voluptatibus labore quam nihil. Quasi occaecati quos ratione quia aut molestiae velit et.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-4">
+                    <div class="card h-100 shadow card-span p-3 bg-black">
+                      <div class="card-body">
+                        <div class="d-flex align-items-center"><img class="img-fluid" src="media/img/gallery/sandra-willims.png" width="80" alt="testimonials" />
+                          <div class="flex-1 ms-4">
+                            <h6 class="fs-lg-1 mb-1 text-uppercase">Ainara Vergara</h6>
+                          </div>
+                        </div>
+                        <p class="mb-0 mt-4 fw-light lh-lg">Nisi cumque in necessitatibus molestiae eaque excepturi ab. Laboriosam ipsam voluptatem voluptatibus labore quam nihil. Quasi occaecati quos ratione quia aut molestiae velit et.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item" data-bs-interval="5000">
+                <div class="row h-100 justify-content-center">
+                  <div class="col-md-6 mb-4">
+                    <div class="card h-100 shadow card-span p-3 bg-black">
+                      <div class="card-body">
+                        <div class="d-flex align-items-center"><img class="img-fluid" src="media/img/gallery/smith.png" width="80" alt="testimonials" />
+                          <div class="flex-1 ms-4">
+                            <h6 class="fs-lg-1 mb-1 text-uppercase">Niek Bove</h6>
+                          </div>
+                        </div>
+                        <p class="mb-0 mt-4 fw-light lh-lg">Nisi cumque in necessitatibus molestiae eaque excepturi ab. Laboriosam ipsam voluptatem voluptatibus labore quam nihil. Quasi occaecati quos ratione quia aut molestiae velit et.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-4">
+                    <div class="card h-100 shadow card-span p-3 bg-black">
+                      <div class="card-body">
+                        <div class="d-flex align-items-center"><img class="img-fluid" src="media/img/gallery/sandra-willims.png" width="80" alt="testimonials" />
+                          <div class="flex-1 ms-4">
+                            <h6 class="fs-lg-1 mb-1 text-uppercase">Ainara Vergara</h6>
+                          </div>
+                        </div>
+                        <p class="mb-0 mt-4 fw-light lh-lg">Nisi cumque in necessitatibus molestiae eaque excepturi ab. Laboriosam ipsam voluptatem voluptatibus labore quam nihil. Quasi occaecati quos ratione quia aut molestiae velit et.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="row h-100 justify-content-center">
+                  <div class="col-md-6 mb-4">
+                    <div class="card h-100 shadow card-span p-3 bg-black">
+                      <div class="card-body">
+                        <div class="d-flex align-items-center"><img class="img-fluid" src="media/img/gallery/smith.png" width="80" alt="testimonials" />
+                          <div class="flex-1 ms-4">
+                            <h6 class="fs-lg-1 mb-1 text-uppercase">amanda smith</h6>
+                          </div>
+                        </div>
+                        <p class="mb-0 mt-4 fw-light lh-lg">Nisi cumque in necessitatibus molestiae eaque excepturi ab. Laboriosam ipsam voluptatem voluptatibus labore quam nihil. Quasi occaecati quos ratione quia aut molestiae velit et.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-4">
+                    <div class="card h-100 shadow card-span p-3 bg-black">
+                      <div class="card-body">
+                        <div class="d-flex align-items-center"><img class="img-fluid" src="media/img/gallery/sandra-willims.png" width="80" alt="testimonials" />
+                          <div class="flex-1 ms-4">
+                            <h6 class="fs-lg-1 mb-1 text-uppercase">Ainara Vergara</h6>
+                          </div>
+                        </div>
+                        <p class="mb-0 mt-4 fw-light lh-lg">Nisi cumque in necessitatibus molestiae eaque excepturi ab. Laboriosam ipsam voluptatem voluptatibus labore quam nihil. Quasi occaecati quos ratione quia aut molestiae velit et.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-5 flex-center">
+              <div class="col-auto position-relative z-index-2">
+                <ol class="carousel-indicators">
+                  <li class="active mx-2" data-bs-target="#carouselTestimonials" data-bs-slide-to="0"></li>
+                  <li class="mx-2" data-bs-target="#carouselTestimonials" data-bs-slide-to="1"></li>
+                  <li class="mx-2" data-bs-target="#carouselTestimonials" data-bs-slide-to="2"></li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end of .container-->
+
+  </section>
+  <!-- <section> close ============================-->
+  <!-- ============================================-->
+
+
+
+
+  <!-- ============================================-->
+  <!-- <section> begin ============================-->
+  <section class="py-0 pt-7" id="contact">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-6 col-sm-4 col-xl-3 mb-3">
+          <h4 class="lh-lg fw-bold text-light">WATCH</h4>
+        </div>
+        <div class="col-6 col-sm-4 col-xl-3 mb-3">
+          <h5 class="lh-lg fw-bold text-light">MENU</h5>
+          <ul class="list-unstyled mb-md-4 mb-lg-0">
+            <li class="lh-lg"><a class="text-800 text-decoration-none text-uppercase fw-bold" href="#!">Shipping Info</a></li>
+            <li class="lh-lg"><a class="text-800 text-decoration-none text-uppercase fw-bold" href="#!">Refunds</a></li>
+            <li class="lh-lg"><a class="text-800 text-decoration-none text-uppercase fw-bold" href="#!">How to Order</a></li>
+            <li class="lh-lg"><a class="text-800 text-decoration-none text-uppercase fw-bold" href="#!">How to Track</a></li>
+            <li class="lh-lg"><a class="text-800 text-decoration-none text-uppercase fw-bold" href="#!">Size Guides</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-sm-4 col-xl-3 mb-3">
+          <h5 class="mb-5"></h5>
+          <ul class="list-unstyled mb-md-4 mb-lg-0">
+            <li class="lh-lg"><a class="text-800 text-decoration-none text-uppercase fw-bold" href="#!">Contact Us</a></li>
+            <li class="lh-lg"><a class="text-800 text-decoration-none text-uppercase fw-bold" href="#!">my account</a></li>
+          </ul>
+        </div>
+        <div class="col-12 col-xl-3">
+          <h5 class="lh-lg fw-bold text-light text-uppercase">Signup For our Latest News</h5>
+          <div class="row input-group-icon mb-5">
+            <div class="col-12">
+              <form class="row row-cols-lg-auto g-0 align-items-center">
+                <div class="col-8 col-lg-9">
+                  <label class="visually-hidden" for="colFormLabel">Username</label>
+                  <div class="input-group">
+                    <input class="rounded-end-0 form-control" id="colFormLabel" type="email" placeholder="email address" />
+                  </div>
+                </div>
+                <div class="col-4 col-lg-3">
+                  <button class="btn btn-primary rounded-start-0" type="submit">Submit</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="border-bottom border-700"></div>
+      <div class="row flex-center my-3">
+        <div class="col-md-6 order-1 order-md-0">
+          <p class="my-2 text-800 text-center text-md-start"> Made with&nbsp;
+            <svg class="bi bi-suit-heart-fill" xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="#EB6453" viewBox="0 0 16 16">
+              <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"></path>
+            </svg>&nbsp;by&nbsp;<a class="text-500" href="https://themewagon.com/" target="_blank">ThemeWagon </a>
+          </p>
+        </div>
+        <div class="col-md-6">
+          <div class="text-center text-md-end"><a href="#!"><span class="me-4" data-feather="facebook"></span></a><a href="#!"> <span class="me-4" data-feather="instagram"></span></a><a href="#!"> <span class="me-4" data-feather="youtube"></span></a><a href="#!"> <span class="me-4" data-feather="twitter"></span></a></div>
+        </div>
+      </div>
+    </div>
+    <!-- end of .container-->
+
+  </section>
+  <!-- <section> close ============================-->
+  <!-- ============================================-->
+
+
+
+<!-- ===============================================-->
+<!--    End of Main Content-->
+<!-- ===============================================-->
+
+
+
+
+<!-- ===============================================-->
+<!--    JavaScripts-->
+<!-- ===============================================-->
+{% endblock %}
