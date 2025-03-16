@@ -8,7 +8,7 @@ from Payment.models import UserValue
 # Login View
 def login_page(request):
     if request.user.is_authenticated:  # Check if user is already logged in
-        return redirect('/')
+        return redirect('/Dashbord')
     
     
     if request.method == 'POST':
@@ -20,23 +20,26 @@ def login_page(request):
         user_obj = User.objects.filter(username=email)
         if not user_obj.exists():
             messages.warning(request, "User does not exist")
-            return HttpResponseRedirect(request.path_info)
+            return redirect('/Dashbord')
 
         user_obj = authenticate(username=email, password=password)
         if user_obj:
             login(request, user_obj)
-            return redirect('/')  # Make sure 'home' is a valid URL name in your Django URLs
+            return redirect('/Dashbord')  # Make sure 'home' is a valid URL name in your Django URLs
         
     return render(request, 'Register/login.html')
 
 # Register View
 def register_page(request):
+    if request.user.is_authenticated:  # Check if user is already logged in
+        return redirect('/Dashbord')
+    
     if request.method == 'POST':
         username = request.POST.get("username")
         email = request.POST.get("email")
-        password1 = request.POST.get("password1")
-        password2 = request.POST.get("password2")
-        profile_image = request.FILES.get("profile_image")
+        password1 = request.POST.get("password")
+        password2 = request.POST.get("confirm_password")
+        profile_image = request.FILES.get("profile_picture")
         print(username, email, password1, password2, profile_image)
 
         if password1 != password2:
@@ -60,7 +63,7 @@ def register_page(request):
         value.save()
 
         messages.success(request, "Account created successfully")
-        return HttpResponseRedirect(request.path_info)
+        return redirect('/account/login')
 
     return render(request, 'Register/Register.html')
 # Logout View

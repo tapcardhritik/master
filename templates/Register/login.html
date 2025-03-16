@@ -1,47 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #f8f9fa;
-        }
-        .login-container {
-            max-width: 400px;
-            margin: 100px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-    </style>
-</head>
-<body>
+{% extends 'Base/base.html' %}
 
-    <div class="container">
-        <div class="login-container">
-            <h3 class="text-center">Login</h3>
-            <form method="POST">
-                {% csrf_token %}
-                {% include "alert.html" %}
-                <div class="mb-3">
-                    <label for="username" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="username" name="username" required>
+{% block start %}
+    
+    <section class="bg-black py-5 pt-2" id="store" style="margin-top: 5%;margin-left: 3%;">
+
+       
+       
+        <!--/.bg-holder-->
+
+        <div class="container-lg">
+          <div class="row flex-center">
+            <div class="col-9 order-md-0 text-center text-md-start"></div>
+            <div class="col-sm-10 col-md-6 col-lg-6 text-center text-md-start">
+              <div class="carousel slide carousel-fade" id="carouselExampleFade" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <div class="row h-100">
+                      <div class="col-12">
+                        <div class="container">
+                            <div class="login-container">
+                                <h3 class="text-center">Login</h3>
+                                <form method="POST">
+                                    {% csrf_token %}
+                                    {% include "alert.html" %}
+                                    <div class="mb-3">
+                                        <label for="username" class="form-label">Username</label>
+                                        <input type="text" class="form-control" id="username" name="username" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="password" class="form-label">Password</label>
+                                        <input type="password" class="form-control" id="password" name="password" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary w-100">Login</button>
+                                </form>
+                                <p class="text-center mt-3">
+                                    Don't have an account? <a href="/account/register">Sign Up</a>
+                                </p>
+                            </div>
+                        </div></div>
+                    </div>
+                  </div>
                 </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" name="password" required>
-                </div>
-                <button type="submit" class="btn btn-primary w-100">Login</button>
-            </form>
-            <p class="text-center mt-3">
-                Don't have an account? <a href="">Sign Up</a>
-            </p>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
+      </section>
+      
+     
 
-</body>
-</html>
+    
+    <!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+
+
+
+
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    {% endblock %}
