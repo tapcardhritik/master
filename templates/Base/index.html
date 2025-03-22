@@ -1,0 +1,41 @@
+{% extends 'Base/base.html' %}
+
+{% block start %}
+    
+{% include 'Base/nav.html' %}
+{% include 'Base/login.html' %}
+{% include 'Base/register.html' %}
+
+    <main>
+        <div class="container-fluid p-0" style="height: 100vh; position: relative;">
+            <div class="row" style="height: 100vh; margin: 0;">
+                <div class="col p-0" style="height: 100vh;">
+                    <!-- Carousel -->
+                    <div id="Carousel1" class="carousel slide" data-bs-ride="carousel" style="height: 100vh;">
+                        <div class="carousel-inner" style="height: 100vh;">
+                            <div class="carousel-item active" style="height: 100vh;">
+                                <video class="d-block w-100" autoplay loop muted style="height: 100vh; object-fit: cover;">
+                                    <source src="/media/dummy/video.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of Carousel -->
+        
+                    <!-- Typewriter Text -->
+                    <div class="typewriter-container">
+                        <h1 id="typewriter" style="color: aliceblue; "></h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+    
+            <!-- Title -->
+            
+
+       
+{% endblock %}
+    <!-- Core -->

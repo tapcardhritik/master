@@ -5,67 +5,85 @@ from django.contrib.auth import login, authenticate, logout
 from django.http import HttpResponseRedirect
 from .models import Profile
 from Payment.models import UserValue
+from django.http import JsonResponse
+import json
 # Login View
 def login_page(request):
-    if request.user.is_authenticated:  # Check if user is already logged in
+    # If the user is already authenticated, redirect them
+    if request.user.is_authenticated:
         return redirect('/Dashbord')
-    
-    
+
+    # Handle the POST request when the form is submitted
     if request.method == 'POST':
-        email = request.POST.get("username")
-        password = request.POST.get("password")
-        print(email)
-        print(password)
+        if request.headers.get('Content-Type') == 'application/json':
+            data = json.loads(request.body)
+            email = data.get("email")
+            password = data.get("password")
+            
+            # Try to find the user by email
+            user_obj = User.objects.filter(username=email).first()
 
-        user_obj = User.objects.filter(username=email)
-        if not user_obj.exists():
-            messages.warning(request, "User does not exist")
-            return redirect('/Dashbord')
+            if not user_obj:
+                return JsonResponse({'success': False, 'message': 'User does not exist'}, status=400)
 
-        user_obj = authenticate(username=email, password=password)
-        if user_obj:
-            login(request, user_obj)
-            return redirect('/Dashbord')  # Make sure 'home' is a valid URL name in your Django URLs
-        
-    return render(request, 'Register/login.html')
+            # Authenticate the user
+            user_obj = authenticate(username=email, password=password)
+            
+            if user_obj is not None:
+                # Log the user in and send a success response
+                login(request, user_obj)
+                return JsonResponse({'success': True})
+            else:
+                # Authentication failed
+                return JsonResponse({'success': False, 'message': 'Invalid credentials'}, status=400)
+    return redirect('/')
 
+    # If not a POST request, render the login page
 # Register View
 def register_page(request):
-    if request.user.is_authenticated:  # Check if user is already logged in
+    # If the user is already authenticated, redirect them to the dashboard
+    if request.user.is_authenticated:
         return redirect('/Dashbord')
-    
+
+    # Handle POST request when the form is submitted
     if request.method == 'POST':
-        username = request.POST.get("username")
-        email = request.POST.get("email")
-        password1 = request.POST.get("password")
-        password2 = request.POST.get("confirm_password")
-        profile_image = request.FILES.get("profile_picture")
-        print(username, email, password1, password2, profile_image)
+        # If the request is from a JSON API
+        if request.headers.get('Content-Type') == 'application/json':
+            data = json.loads(request.body)
+            username = data.get("username")
+            email = data.get("email")
+            password1 = data.get("password")
+            password2 = data.get("confirm_password")
+            profile_image = data.get("profile_picture")  # The profile image URL or base64 string
+            print(username)
+            print(email)
+            print(password1)
+            print(profile_image)
 
-        if password1 != password2:
-            messages.warning(request, "Passwords do not match")
-            return HttpResponseRedirect(request.path_info)
+            if User.objects.filter(username=email).exists():
+                return JsonResponse({'success': False, 'message': 'User already exists'}, status=400)
 
-        if User.objects.filter(username=email).exists():
-            messages.warning(request, "User already exists")
-            return HttpResponseRedirect(request.path_info)
+            # Create the user object
+            user_obj = User.objects.create(first_name=username, email=email, username=email)
+            user_obj.set_password(password1)
+            user_obj.save()
 
-        # Create the user
-        user_obj = User.objects.create(first_name=username, email=email, username=email)
-        user_obj.set_password(password1)
-        user_obj.save()
+            # Create the user profile (optional field, you can modify this if profile image is provided via API)
+            if profile_image:
+                # Handle image upload or saving logic here
+                Profile.objects.create(user=user_obj, Profile_image=profile_image)
+            else:
+                # If no profile image is provided, set a default image (if required)
+                Profile.objects.create(user=user_obj, Profile_image='default-image.jpg')  # Use a default image
 
-        # Create the user profile
-        Profile.objects.create(user=user_obj, Profile_image=profile_image)
+            # Create the user value (optional or related model)
+            value = UserValue.objects.create(user=user_obj)
+            value.save()
 
-        # Fetch the correct user object
-        value = UserValue.objects.create(user=user_obj)  # ✅ Corrected
-        value.save()
+            return JsonResponse({'success': True, 'message': 'Account created successfully'})
 
-        messages.success(request, "Account created successfully")
-        return redirect('/account/login')
+    return redirect("/")
 
-    return render(request, 'Register/Register.html')
 # Logout View
 def logout_view(request):
     logout(request)
