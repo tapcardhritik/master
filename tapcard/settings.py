@@ -72,7 +72,7 @@ TEMPLATES = [
         },
     },
 ]
-
+APPEND_SLASH=False
 WSGI_APPLICATION = 'tapcard.wsgi.application'
 
 
